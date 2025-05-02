@@ -1,6 +1,8 @@
 import React, { use } from 'react';
 import Category from './Category';
-const loadCategories = fetch('categories.json')
+
+
+const loadCategories = fetch('../categories.json')
 .then(res => res.json())
 
 const Categories = () => {
@@ -8,8 +10,8 @@ const Categories = () => {
     
     return (
         <div>
-            <h2 className='text-xl font-medium'>All Category</h2>
-            <div>
+            <h2 className='text-lg font-semibold'>All Category ({categories.length})</h2>
+            <div className='flex flex-col mt-5'>
                 {
                     categories.map(cat => <Category
                         key={cat.id} 

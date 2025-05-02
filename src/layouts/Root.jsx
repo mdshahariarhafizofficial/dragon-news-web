@@ -18,7 +18,7 @@ const Root = () => {
                 </nav>
             </header>
             
-            <main className='max-w-[1280px] mx-auto my-10 grid grid-cols-12 px-5 lg:px-0'>
+            <main className='max-w-[1280px] mx-auto my-10 grid gap-6 grid-cols-12 px-5 lg:px-0'>
                 <aside className='col-span-3'>
                     <LeftAside></LeftAside>
                 </aside>
