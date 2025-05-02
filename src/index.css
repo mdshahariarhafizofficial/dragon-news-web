@@ -8,8 +8,8 @@
   default: true;
   --color-primary: #403F3F;
   --color-secondary: #D72050;
-  --color-accent-300: #E7E7E7;
-  --color-accent-200: #403F3F;
+  --color-base-200: #F3F3F3;
+  --color-base-300: #E7E7E7;
   --color-accent: #706F6F;
 }
 
