@@ -1,11 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router';
 import userLogo from '../assets/user.png'
+import navLogo from '../assets/nav-logo.png'
 
 const Navbar = () => {
     return (
         <div className='flex flex-col-reverse md:flex-row justify-between items-center px-5 lg:px-0'>
-            <div></div>
+            <div>
+                <img className='w-[50px] hidden md:block' src={navLogo} alt="" />
+            </div>
             <div className='flex gap-6 text-lg text-accent'>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/about">About</NavLink>

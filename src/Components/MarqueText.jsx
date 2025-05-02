@@ -8,11 +8,11 @@ const MarqueText = () => {
         <p className="bg-secondary text-white px-5 py-2 text-xl">Latest</p>
 
         <Marquee className="flex gap-5">
-          <p>
+          <p className="text-black font-semibold">
             Match Highlights: Germany vs Spain — as it happened ! Match
             Highlights: Germany vs Spain as...
           </p>
-          <p>
+          <p className="text-black font-semibold">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi odit tempora voluptatibus dignissimos sapiente non unde sit voluptate officiis reprehenderit.
           </p>
         </Marquee>
