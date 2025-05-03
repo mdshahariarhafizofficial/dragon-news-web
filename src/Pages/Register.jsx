@@ -1,9 +1,10 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import toast from 'react-hot-toast';
 
 const Register = () => {
+    const navigate = useNavigate();
     const {createUser, setUser} = use(AuthContext)
     // const [successMessage, setSuccessMessage] = useState(false);
     // const [errorMessage, setErrorMessage] = useState('');
@@ -21,7 +22,8 @@ const Register = () => {
         createUser(email, password)
         .then( (result) =>{
             setUser(result.user);
-            toast.success('Register Successfully')
+            toast.success('Register Successfully');
+            navigate('/')
         } ).catch( (error) => {
           toast.error(error.message)  
         } )
