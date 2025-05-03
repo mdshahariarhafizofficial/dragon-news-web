@@ -17,7 +17,6 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
 
         createUser(email, password)
         .then( (result) =>{
@@ -43,7 +42,8 @@ const Register = () => {
                     name='name'
                     type="text" 
                     className="input w-full mb-4" 
-                    placeholder="Your Name" />
+                    placeholder="Your Name" 
+                    required />
 
                     {/* Photo Url */}
                     <label className="label">Photo URL</label>
@@ -51,7 +51,8 @@ const Register = () => {
                     name='photo'
                     type="url" 
                     className="input w-full mb-4" 
-                    placeholder="Photo URL" />
+                    placeholder="Photo URL"
+                    required />
 
                     {/* Email */}
                     <label className="label">Email</label>
@@ -59,7 +60,8 @@ const Register = () => {
                     name='email'
                     type="email" 
                     className="input w-full mb-4" 
-                    placeholder="Email" />
+                    placeholder="Email"
+                    required />
 
                     {/* Password */}
                     <label className="label">Password</label>
@@ -67,7 +69,8 @@ const Register = () => {
                     name='password'
                     type="password" 
                     className="input w-full mb-4" 
-                    placeholder="Password" />
+                    placeholder="Password" 
+                    required />
 
                     <button 
                     type='submit'

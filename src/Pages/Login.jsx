@@ -1,11 +1,13 @@
 import React, { use } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import toast from 'react-hot-toast';
 
 const Login = () => {
     const {loginUser} = use(AuthContext)
     const navigate = useNavigate();
+    const location = useLocation();
+    
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -17,7 +19,7 @@ const Login = () => {
         loginUser(email, password)
         .then(()=>{
             toast.success('Login Successful!')
-            navigate('/')
+            navigate(`${location.state? location.state: '/'}`)
         })
         .catch((error)=>{
             toast.error(error.message)
@@ -32,11 +34,11 @@ const Login = () => {
                 <fieldset className="fieldset">
                     {/* Email */}
                     <label className="label">Email</label>
-                    <input type="email" name='email' className="input w-full mb-4" placeholder="Email" />
+                    <input type="email" name='email' className="input w-full mb-4" placeholder="Email" required />
 
                     {/* Password */}
                     <label className="label">Password</label>
-                    <input type="password" name='password' className="input w-full mb-4" placeholder="Password" />
+                    <input type="password" name='password' className="input w-full mb-4" placeholder="Password" required />
 
                     <div><a className="link link-hover">Forgot password?</a></div>
                     <button type='submit' className="btn btn-neutral mt-4">Login</button>
