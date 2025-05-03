@@ -3,11 +3,14 @@ import Header from '../Components/Header';
 import MarqueText from '../Components/MarqueText';
 import Navbar from '../Components/Navbar';
 import LeftAside from '../Components/SidebarLayouts/LeftAside';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigation } from 'react-router';
 import RightAside from '../Components/SidebarLayouts/RightAside';
+import Loader from '../Components/Loader';
 
 
 const Root = () => {
+    const navigation = useNavigation();
+    
     return (
         <>
             <header className='max-w-[1280px] mx-auto'>
@@ -23,7 +26,10 @@ const Root = () => {
                     <LeftAside></LeftAside>
                 </aside>
                 <section className='col-span-12 md:col-span-6'>
-                    <Outlet></Outlet>
+                    {
+                        navigation.state == 'loading'? <Loader></Loader>: <Outlet></Outlet>
+                    }
+                    
                 </section>
                 <aside className='sticky top-4 h-fit col-span-12 md:col-span-3'>
                     <RightAside></RightAside>
