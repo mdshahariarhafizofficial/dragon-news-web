@@ -5,9 +5,9 @@ const Login = () => {
     return (
         <div className='flex justify-center items-center h-[calc(100vh-81px)]'>
             <div className="card p-10 bg-base-100 w-full max-w-lg shrink-0 shadow-2xl">
-            <div className="card-body">
+            <form className="card-body">
                 <h2 className='text-3xl font-bold text-center mb-7'>Login your account</h2>
-                <form className="fieldset">
+                <fieldset className="fieldset">
                     <label className="label">Email</label>
                     <input type="email" className="input w-full mb-4" placeholder="Email" />
                     <label className="label">Password</label>
@@ -17,8 +17,8 @@ const Login = () => {
 
                     <p className='text-center font-semibold pt-5'>Don't Have An Account ? <Link to="/auth/register" className='text-secondary'>Register</Link> </p>
 
-                </form>
-            </div>
+                </fieldset>
+            </form>
             </div>
         </div>
     );
