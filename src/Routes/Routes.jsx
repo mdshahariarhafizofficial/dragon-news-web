@@ -3,6 +3,9 @@ import { createBrowserRouter } from 'react-router';
 import Root from '../layouts/Root';
 import Home from '../Pages/Home';
 import CategoryNews from '../Pages/CategoryNews';
+import Auth from '../layouts/Auth';
+import Login from '../Pages/Login';
+import Register from '../Pages/Register';
 
 const router = createBrowserRouter([
     {
@@ -18,10 +21,26 @@ const router = createBrowserRouter([
                 Component: CategoryNews,
                 loader: () => fetch('../news.json'),
                 hydrateFallbackElement: <p>Loading.....</p>
-            }
+            },
 
         ]
+    },
+
+    {
+        path: "/auth",
+        Component: Auth,
+        children: [
+            {
+                path: '/auth/login',
+                Component: Login
+            },
+            {
+                path: '/auth/register',
+                Component: Register
+            }
+        ]
     }
+
 ])
 
 export default router;

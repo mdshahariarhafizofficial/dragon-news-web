@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import userLogo from '../assets/user.png'
 import navLogo from '../assets/nav-logo.png'
 
@@ -16,7 +16,9 @@ const Navbar = () => {
             </div>
             <div className='flex w-full md:w-auto justify-between md:justify-end gap-5 items-center py-5'>
                 <img src={userLogo} alt="" />
-                <button className='btn btn-primary px-10'>Login</button>
+                <Link to="/auth/login">
+                    <button className='btn btn-primary px-10'>Login</button>
+                </Link>
             </div>
         </div>
     );
