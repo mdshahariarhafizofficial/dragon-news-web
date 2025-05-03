@@ -6,7 +6,7 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     console.log(user);
     
-    // Create User
+    // Create User with email & password
     const createUser = (email, password)=>{
         return createUserWithEmailAndPassword(auth, email, password)
     }
@@ -31,6 +31,7 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
+    // Context Data
     const userInfo = {
         createUser,
         user,
