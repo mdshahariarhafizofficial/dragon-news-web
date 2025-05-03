@@ -19,13 +19,13 @@ const Root = () => {
             </header>
             
             <main className='max-w-[1280px] mx-auto my-10 grid gap-6 grid-cols-12 px-5 lg:px-0'>
-                <aside className='col-span-3'>
+                <aside className='col-span-12 md:col-span-3'>
                     <LeftAside></LeftAside>
                 </aside>
-                <section className='col-span-6'>
+                <section className='col-span-12 md:col-span-6'>
                     <Outlet></Outlet>
                 </section>
-                <aside className='col-span-3'>
+                <aside className='col-span-12 md:col-span-3'>
                     <RightAside></RightAside>
                 </aside>
             </main>

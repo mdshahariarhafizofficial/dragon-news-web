@@ -11,7 +11,7 @@ const Categories = () => {
     return (
         <div>
             <h2 className='text-lg font-semibold'>All Category ({categories.length})</h2>
-            <div className='flex flex-col mt-5'>
+            <div className='grid grid-cols-3 md:grid-cols-1 gap-5 md:gap-0 mt-5'>
                 {
                     categories.map(cat => <Category
                         key={cat.id} 
