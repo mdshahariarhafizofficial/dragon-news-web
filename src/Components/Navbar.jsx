@@ -2,8 +2,10 @@ import React from 'react';
 import { Link, NavLink } from 'react-router';
 import userLogo from '../assets/user.png'
 import navLogo from '../assets/nav-logo.png'
+import { AuthContext } from '../Contexts/AuthContext';
 
 const Navbar = () => {
+
     return (
         <div className='flex flex-col-reverse md:flex-row justify-between items-center px-5 lg:px-0'>
             <div>
