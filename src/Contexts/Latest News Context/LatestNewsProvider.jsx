@@ -6,14 +6,12 @@ const LatestNewsProvider = ({children}) => {
 
     // Load Latest News
     useEffect(()=>{
-        const fetchLatestNews = () => fetch('/news.json')
+        fetch('../news.json')
         .then(res => res.json())
         .then(data => setLatest(data))
-
-        return ()=>{
-            fetchLatestNews()
-        }
     },[])
+
+    
     
 
     // Context Data
