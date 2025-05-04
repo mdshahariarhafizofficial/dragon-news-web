@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut,  } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut,  } from "firebase/auth";
 import { auth } from '../Firebase/firebase_init';
+import toast from 'react-hot-toast';
+
+const googleProvider = new GoogleAuthProvider();
+
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loader, setLoader] = useState(true);
@@ -12,6 +16,19 @@ const AuthProvider = ({children}) => {
         setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
+
+    // Sing in with Gmail
+    const singInWithGmail = () => {
+        signInWithPopup(auth, googleProvider)
+        .then((result) => {
+            setUser(result.user)
+            toast.success('Sing is Successful')
+        })
+        .catch((error)=>{
+            toast.error(error.message)
+        })
+    }
+
 
     // Current User
     useEffect(()=>{
@@ -45,6 +62,7 @@ const AuthProvider = ({children}) => {
         logOut,
         loader, 
         setLoader,
+        singInWithGmail,
     }
     return (
         <AuthContext value={userInfo}>
