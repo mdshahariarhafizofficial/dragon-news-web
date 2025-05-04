@@ -6,6 +6,7 @@ import LeftAside from '../Components/SidebarLayouts/LeftAside';
 import { Outlet, useNavigation } from 'react-router';
 import RightAside from '../Components/SidebarLayouts/RightAside';
 import Loader from '../Components/Loader';
+import LatestNewsProvider from '../Contexts/Latest News Context/LatestNewsProvider';
 
 
 const Root = () => {
@@ -15,7 +16,9 @@ const Root = () => {
         <>
             <header className='max-w-[1280px] mx-auto'>
                 <Header></Header>
-                <MarqueText></MarqueText>
+                <LatestNewsProvider>
+                    <MarqueText></MarqueText>
+                </LatestNewsProvider>
                 <nav>
                     <Navbar></Navbar>
                 </nav>
