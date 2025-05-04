@@ -35,6 +35,7 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
+
     // Context Data
     const userInfo = {
         createUser,

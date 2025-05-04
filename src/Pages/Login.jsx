@@ -1,14 +1,16 @@
-import React, { use } from 'react';
+import React, { use, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import toast from 'react-hot-toast';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../Firebase/firebase_init';
 
 const Login = () => {
     const {loginUser} = use(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
     
-
+// Login
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -26,6 +28,20 @@ const Login = () => {
         })
     }
 
+    const emailRef = useRef();
+    // Forgot Password
+    const handleForgotPassword = () =>{
+        const email = emailRef.current.value;
+
+        sendPasswordResetEmail( auth, email)
+        .then(()=>{
+            toast.success('Password reset email sent!')
+        })
+        .catch((error)=>{
+            toast.error(error.message)
+        })
+    }
+
     return (
         <div className='flex justify-center items-center h-[calc(100vh-81px)]'>
             <div className="card p-10 bg-base-100 w-full max-w-lg shrink-0 shadow-2xl">
@@ -34,13 +50,13 @@ const Login = () => {
                 <fieldset className="fieldset">
                     {/* Email */}
                     <label className="label">Email</label>
-                    <input type="email" name='email' className="input w-full mb-4" placeholder="Email" required />
+                    <input type="email" name='email' ref={emailRef} className="input w-full mb-4" placeholder="Email" required />
 
                     {/* Password */}
                     <label className="label">Password</label>
                     <input type="password" name='password' className="input w-full mb-4" placeholder="Password" required />
 
-                    <div><a className="link link-hover">Forgot password?</a></div>
+                    <div><a onClick={handleForgotPassword} className="link link-hover text-secondary">Forgot password?</a></div>
                     <button type='submit' className="btn btn-neutral mt-4">Login</button>
 
                     <p className='text-center font-semibold pt-5'>Don't Have An Account ? <Link to="/auth/register" className='text-secondary'>Register</Link> </p>
